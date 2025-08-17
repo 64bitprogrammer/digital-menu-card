@@ -2,6 +2,7 @@
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Detect IP
     $ip = $_SERVER['REMOTE_ADDR'];
@@ -14,25 +15,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Timestamp
     $timestamp = date("Y-m-d H:i:s");
 
-    // Decode POSTed JSON
+    // Decode POST JSON
     $data = json_decode(file_get_contents("php://input"), true);
     $buttonValue = $data['menu'] ?? 'UNKNOWN';
 
-    // Open CSV file for appending
+    // Select headers manually
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $referer = $_SERVER['HTTP_REFERER'] ?? '';
+    $language = $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '';
+    $encoding = $_SERVER['HTTP_ACCEPT_ENCODING'] ?? '';
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+
+    // Open CSV
     $fp = fopen("menu-stats.csv", "a");
 
-    // If file is new/empty, write header
+    // If new file, add header row
     if (filesize("menu-stats.csv") === 0) {
-        fputcsv($fp, ["timestamp", "ip", "menu"]);
+        fputcsv($fp, [
+            "timestamp",
+            "ip",
+            "menu",
+            "user_agent",
+            "referer",
+            "language",
+            "encoding",
+            "host"
+        ]);
     }
 
-    // Write a row
-    fputcsv($fp, [$timestamp, $ip, $buttonValue]);
+    // Write log row
+    fputcsv($fp, [
+        $timestamp,
+        $ip,
+        $buttonValue,
+        $userAgent,
+        $referer,
+        $language,
+        $encoding,
+        $host
+    ]);
 
     fclose($fp);
 
-    // Optional response
     // echo json_encode(["status" => "ok"]);
 }
-
 ?>
