@@ -23,7 +23,7 @@ body {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -87,7 +87,7 @@ body {
     padding: 1rem;
     border-bottom: 3px solid #e9ecef;
     position: sticky;
-    top: 180px;
+    top: 110px;
     z-index: 99;
 }
 

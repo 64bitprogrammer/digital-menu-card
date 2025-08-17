@@ -3,1041 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uday Bhuvan - Pure Veg Restaurant</title>
-    <link rel="stylesheet" href="assets/style.css" >
+    <title>Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 420px;
+            padding: 3.5rem 2.5rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #eaa166, #e96214);
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+            background: white;
+            padding-bottom: 8px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            background: linear-gradient(90deg, #eaa166, #e96214);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            background: linear-gradient(90deg, #eaa166, #e96214);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #eaa166, #f07a35);
+            color: white;
+            box-shadow: 0 4px 15px rgba(184, 113, 80, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(219, 142, 97, 0.5);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #e4b560;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-secondary:hover {
+            border-color: #ec994b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Icon styles */
+        .btn-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Responsive design */
+        @media (min-width: 480px) {
+            .button-container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.2rem;
+            }
+
+            .btn {
+                flex: 1;
+                max-width: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 1rem;
+                padding: 2.5rem 2rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* Subtle animations */
+        .container {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
 </head>
-<body class="scroll-smooth">
+<body>
     <div class="container">
-        <header class="header">
-            <div class="logo">
-                <!-- <div class="sun-logo">LB</div> -->
-                 <img  class='sun-logo' src="assets/ub-logo.png"  height="100" width="100"/>
-                <div>
-                    <h1 class="restaurant-name">UDAY BHUVAN</h1>
-                    <p class="tagline">PURE VEG RESTAURANT</p>
-                    <p class="tagline2">12/B C.D. DESHMUKH ROAD, TILAKWADI BELGAUM 590006</p>
-                    <p class="tagline2">CONTACT: 7026626426</p>
-                </div>
-            </div>
-        </header>
-
-        <nav class="category-nav">
-            <button class="nav-toggle" onclick="toggleNav()">📋 Browse Menu Categories</button>
-            <div class="nav-buttons" id="navButtons">
-                <button class="nav-btn" onclick="scrollToSection('breakfast')">Breakfast</button>
-                <button class="nav-btn" onclick="scrollToSection('dosa')">Dosa</button>
-                <button class="nav-btn" onclick="scrollToSection('poori')">Poori</button>
-                <button class="nav-btn" onclick="scrollToSection('snacks')">Snacks</button>
-                <button class="nav-btn" onclick="scrollToSection('bread-items')">Bread Items</button>
-                <button class="nav-btn" onclick="scrollToSection('sandwitches')">Sandwitches</button>
-                <button class="nav-btn" onclick="scrollToSection('hot-beverages')">Hot Beverages</button>
-                <button class="nav-btn" onclick="scrollToSection('cold-beverages')">Cold Beverages</button>
-                <button class="nav-btn" onclick="scrollToSection('mumbai-chat')">Mumbai Chat</button>
-
-                <button class="nav-btn" onclick="scrollToSection('faast-special')">Faast Special</button>
-                <button class="nav-btn" onclick="scrollToSection('thali')">Thali</button>
-                <button class="nav-btn" onclick="scrollToSection('roti-sabzi')">Roti Sabzi</button>
-                <button class="nav-btn" onclick="scrollToSection('rice-items')">Rice Items</button>        
-                
-                <button class="nav-btn" onclick="scrollToSection('desserts')">Desserts</button>
-                <button class="nav-btn" onclick="scrollToSection('extras')">Extras</button>
-            </div>
-        </nav>
-
-        <main>
-            <section id="breakfast" class="menu-section">
-                <h2 class="section-title">Breakfast</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Uppit</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Uppit Shev</h3>
-                            <span class="item-price">₹35</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Pohe</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Shev Pohe</h3>
-                            <span class="item-price">₹35</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Ghee Sheera</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Chou Chou Bhat</h3>
-                            <span class="item-price">₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Idli (Single/Double)</h3>
-                            <span class="item-price">₹30/₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Uddin Vada (Single/Double)</h3>
-                            <span class="item-price">₹40/₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Idli Vada (Single/Double)</h3>
-                            <span class="item-price">₹60/₹85</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Fry Idli (Single/Double)</h3>
-                            <span class="item-price">₹30/₹60</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Batata Vada (Single/Double)</h3>
-                            <span class="item-price">₹35/₹70</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="dosa" class="menu-section">
-                <h2 class="section-title">Dosa Varieties</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Masala Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹75</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹95</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹105</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Special Masala Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹120</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹130</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Plain Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹60</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹80</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹90</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Set Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹80</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹110</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Benne Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹120</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Mysore Masala Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹120</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹130</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Paper Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹190</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹220</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹230</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Neer Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹60</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹80</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹90</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Tuppa Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹70</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹90</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Onion Uttappa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹80</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹110</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Tomato Omlette</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹80</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹110</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Rava Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹80</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹100</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹110</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Dosa Mania</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹120</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹140</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹140</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Schezwan Masala Dosa</h3>
-                        </div>
-                        <div class="dosa-variants">
-                            <div class="variant">
-                                <span class="variant-name">Regular</span>
-                                <span class="variant-price">₹90</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Butter</span>
-                                <span class="variant-price">₹110</span>
-                            </div>
-                            <div class="variant">
-                                <span class="variant-name">Cheese</span>
-                                <span class="variant-price">₹120</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Cut Masala Dosa</h3>
-                            <span class="item-price">₹100</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Cut Onion Uttapam</h3>
-                            <span class="item-price">₹100</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Cut Tomato Omlette</h3>
-                            <span class="item-price">₹100</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Cut Benne Dosa</h3>
-                            <span class="item-price">₹120</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="poori" class="menu-section">
-                <h2 class="section-title">Poori & Roti Items</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Poori Bhaji (Single/Full)</h3>
-                            <span class="item-price">₹50/₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Poori with Aloo Sabzi</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                   <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Kurma Poori (Single/Full)</h3>
-                            <span class="item-price">₹60/₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Poori Chole (Single/Full)</h3>
-                            <span class="item-price">₹60/₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Poori Basundi</h3>
-                            <span class="item-price">₹90</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Poori Shrikhand</h3>
-                            <span class="item-price">₹90</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Poori Chatni</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Poori (2pc/4pc)</h3>
-                            <span class="item-price">₹30/₹50</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="snacks" class="menu-section">
-                <h2 class="section-title">Snacks </h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Vegetable Cutlet (Single/Double)</h3>
-                            <span class="item-price">₹40/₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Mysore Bhajji</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Onion Pakoda</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Half Plate Bhajji</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>French Fries</h3>
-                            <span class="item-price">₹130</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Dahi Vada (Single/Double)</h3>
-                            <span class="item-price">₹40/₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Vada Pav</h3>
-                            <span class="item-price">₹25</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Kolhapuri Cut Vada</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Chakli / Chiwda / Shev / Farsan</h3>
-                            <span class="item-price">₹40</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="bread-items" class="menu-section">
-                <h2 class="section-title">Bread Items</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Missal</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Missal Bread / Pav</h3>
-                            <span class="item-price">₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bread Bhaji</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bread Toast</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bread Butter</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bread Butter Jam</h3>
-                            <span class="item-price">₹60</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bread Butter Toast Jam</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="sandwitches" class="menu-section">
-                <h2 class="section-title">Sandwitches</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Veg. Sandwich</h3>
-                            <span class="item-price">₹60</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Chatni Sandwich</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Veg Toast Sandwich</h3>
-                            <span class="item-price">₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Veg Cheese Sandwich</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Cheese Toast Sandwich</h3>
-                            <span class="item-price">₹90</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="hot-beverages" class="menu-section">
-                <h2 class="section-title">Hot Beverages</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Tea / Black Tea</h3>
-                            <span class="item-price">₹20</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Ginger Tea</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Green Tea</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Coffee / Sugarless Coffee</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Kashai</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Lemon Tea</h3>
-                            <span class="item-price">₹20</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Special Tea (KT) / Sugarless</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Nescafe</h3>
-                            <span class="item-price">₹40</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bournvita</h3>
-                            <span class="item-price">₹40</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Milk Cup</h3>
-                            <span class="item-price">₹20</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Milk Glass</h3>
-                            <span class="item-price">₹35</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Badam Milk</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="cold-beverages" class="menu-section">
-                <h2 class="section-title">Cold Beverages</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Solkadi</h3>
-                            <span class="item-price">₹25</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Goti Soda</h3>
-                            <span class="item-price">₹40</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Lassi</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Buttermilk</h3>
-                            <span class="item-price">₹25</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Limbu Sharbat</h3>
-                            <span class="item-price">₹25</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Soft Drink</h3>
-                            <span class="item-price">₹25</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Jeera Soda</h3>
-                            <span class="item-price">₹20</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Fresh Lime Soda</h3>
-                            <span class="item-price">₹40</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Mineral Water (500ml/1L/2L)</h3>
-                            <span class="item-price">₹10/₹20/₹30</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-             <section id="mumbai-chat" class="menu-section">
-                <h2 class="section-title">Mumbai Chat </h2>
-                <div class="timing">[4 PM Onwards]</div>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Pav Bhaji</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Butter Pav Bhaji</h3>
-                            <span class="item-price">₹90</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Cheese Pav Bhaji</h3>
-                            <span class="item-price">₹100</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Special Pav Bhaji</h3>
-                            <span class="item-price">₹120</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Masala Pav</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Butter Pav (1pc/2pc)</h3>
-                            <span class="item-price">₹15/₹25</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="faast-special" class="menu-section">
-                <h2 class="section-title">Faast Special</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Sabudana Khichadi & Curd</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Sabudana Khichadi</h3>
-                            <span class="item-price">₹40</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Shenga Usal</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Double Sabudana Vada</h3>
-                            <span class="item-price">₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Single Sabudana Vada</h3>
-                            <span class="item-price">₹40</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Upavas Thali</h3>
-                            <span class="item-price">₹150</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="thali" class="menu-section">
-                <h2 class="section-title">South Indian Thali & Rice Items</h2>
-                <div class="timing">[11 AM Onwards]</div>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Regular Thali</h3>
-                            <span class="item-price">₹120/₹130</span>
-                        </div>
-                        <p class="item-description">2pc Chapati / 2pc Bhakri / 4pc Poori + Dal + Rice + Sabzi + Curry + Raitha + Papad</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Special Thali</h3>
-                            <span class="item-price">₹200</span>
-                        </div>
-                        <p class="item-description">2pc Chapati / 2pc Bhakri / 4pc Poori + Dal + Rice + Sabzi + Curry + Kurma + Raitha + Rice + Sweet + Papad + Pulao</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="rice-items" class="menu-section">
-                <h2 class="section-title">Rice Items</h2>
-                <div class="timing">[11 AM Onwards]</div>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Dal Rice</h3>
-                            <span class="item-price">₹55</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Rasam Rice</h3>
-                            <span class="item-price">₹55</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Sambar Rice</h3>
-                            <span class="item-price">₹55</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Curd Rice</h3>
-                            <span class="item-price">₹70</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bisibele Bhat</h3>
-                            <span class="item-price">₹60</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Dal Khichadi</h3>
-                            <span class="item-price">₹110</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Vegetable Pulao</h3>
-                            <span class="item-price">₹60</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="roti-sabzi" class="menu-section">
-                <h2 class="section-title">Roti Sabzi</h2>
-                <div class="timing">[11 AM Onwards]</div>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Chapati Bhaji / Usal</h3>
-                            <span class="item-price">₹55</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bhakri Bhaji / Usal</h3>
-                            <span class="item-price">₹55</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Jhunaka Bhakri</h3>
-                            <span class="item-price">₹55</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Chapati Kurma / Chole</h3>
-                            <span class="item-price">₹60</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Bhakri Kurma / Chole</h3>
-                            <span class="item-price">₹60</span>
-                        </div>
-                    </div>
-                </div>
-            </section>            
-
-            <section id="desserts" class="menu-section">
-                <h2 class="section-title">Desserts</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Gulab Jamun</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Basundi</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Ghee Sheera</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Double Sabudana Vada</h3>
-                            <span class="item-price">₹80</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Basundi</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Upavas Thali</h3>
-                            <span class="item-price">₹50</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="extras" class="menu-section">
-                <h2 class="section-title">Extras</h2>
-                <div class="menu-items">
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Sambar / Dal / Rasam </h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Subzi / Chole / Kurma / Jhunka</h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Plain Rice  </h3>
-                            <span class="item-price">₹30</span>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Raitha / Curd </h3>
-                            <span class="item-price">₹20</span>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Chapati / Jawar Roti </h3>
-                            <span class="item-price">₹14</span>
-                        </div>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="item-header">
-                            <h3 class="item-name"><span class="veg-indicator"></span>Extra Papad </h3>
-                            <span class="item-price">₹12</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer style="background: #2c3e50; color: white; text-align: center; padding: 2rem; font-size: 0.9rem;">
-            <p><strong>NOTE:</strong></p>
-            <p>- All prices inclusive of GST</p>
-            <p>- Orders once placed cannot be cancelled</p>
-            <p>- Minimum 15 minutes waiting for order</p>
-            <p>- In case of rush hour, waiting time may increase subjective to rush</p>
-            <p>- Gulab Jamun, Kunda, Basundi available for sale in KG basis</p>
-            <p>- Shev / Chakli / Chiwda available for sale in KG</p>
-            <p>- Prices in menu subject to change without prior notice. Prices applicable only for dine-in</p>
-        </footer>
+        <div class="icon"><!--✦ -->
+            <img src="assets/ub-logo.png" height="55" width="55">
         </div>
-        <script src="assets/script.js"></script>
-    </body>
-    </html>
-
+        
+        <h2>HOTEL UDAY BHVAUN</h2>
+        <p class="subtitle">
+        Pure Veg South Indian Restaurant</p>
+        
+        <div class="button-container">
+            <a href="menu.html" onclick="logClick('Menu')" class="btn btn-primary">
+                <span class="btn-icon">📋</span>
+                Menu
+            </a>
+            <!-- <a href="/payment" class="btn btn-secondary">
+                <span class="btn-icon">💬</span>
+                Payment (QR)
+            </a> -->
+            <a  onclick="logClick('Feedback')" href="https://docs.google.com/forms/d/e/1FAIpQLSdiAEJ4f_NWL-wmPl_JZCMi2eMs2epLO-8f8v9S4Php2cRfVQ/viewform?usp=header" class="btn btn-secondary">
+                <span class="btn-icon">💬</span>
+                Feedback
+            </a>
             
+        </div>
+    </div>
+
+    <script>
+        // onload default call
+        logClick('Landing');
+
+        function logClick(item) {
+        // Prepare data
+        const data = JSON.stringify({ menu: item });
+
+        // Send via beacon (non-blocking, survives page unload)
+        navigator.sendBeacon("log.php", data);
+
+        // (optional) if you want to stop redirect until log is sent:
+        // e.preventDefault();
+        // setTimeout(() => { window.location.href = e.target.href; }, 200);
+        }
+    </script>
+</body>
+</html>
