@@ -161,6 +161,30 @@
             font-size: 1.1rem;
         }
 
+        #toaster {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 10px;
+            position: fixed;
+            z-index: 1;
+            top: 30px; /* 👈 Margin from top */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+            }
+
+            #toaster.show {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            }
+
         /* Responsive design */
         @media (min-width: 480px) {
             .button-container {
@@ -248,10 +272,10 @@
                 <span class="btn-icon">💬</span>
                 Payment (QR)
             </a> -->
-            <!-- <a href="upi://pay?pa=paytmqrp6kkmyv0vd@paytm&pn=Paytm" onclick="logClick('Pay')" class="btn btn-secondary">
+            <a href="javascript:void(0)" onclick="copyUPIID()" class="btn btn-secondary">
                 <span class="btn-icon">💰</span>
                 UPI Payment
-            </a> -->
+            </a>
             <a  onclick="logClick('Feedback')" href="https://docs.google.com/forms/d/e/1FAIpQLSdiAEJ4f_NWL-wmPl_JZCMi2eMs2epLO-8f8v9S4Php2cRfVQ/viewform?usp=header" class="btn btn-secondary">
                 <span class="btn-icon">💬</span>
                 Feedback
@@ -259,7 +283,7 @@
             
         </div>
     </div>
-
+    <div id="toaster">UPI ID Copied to clipboard!</div>
     <script>
         // onload default call
         logClick('Landing');
@@ -275,6 +299,29 @@
         // e.preventDefault();
         // setTimeout(() => { window.location.href = e.target.href; }, 200);
         }
+
+        function copyUPIID(){
+            
+            const UPI_ID = "paytmqrp6kkmyv0vd@paytm";
+            navigator.clipboard.writeText(UPI_ID)
+            .then(() => {
+                showToaster("UPI ID Copied to clipboard!");
+            })
+            .catch(() => {
+                showToaster("Failed to copy!");
+            });
+        }
+
+        function showToaster(message) {
+            const toaster = document.getElementById("toaster");
+            toaster.textContent = message;
+            toaster.classList.add("show");
+
+            // Hide after 2 seconds
+            setTimeout(() => {
+                toaster.classList.remove("show");
+            }, 2000);
+            }
     </script>
 </body>
 </html>
