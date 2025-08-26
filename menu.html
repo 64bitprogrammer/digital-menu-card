@@ -1035,6 +1035,22 @@
         </footer>
         </div>
         <script src="assets/script.js"></script>
+        <script>
+            // onload default call
+            logClick('d2menu');
+    
+            function logClick(item) {
+            // Prepare data
+            const data = JSON.stringify({ menu: item });
+    
+            // Send via beacon (non-blocking, survives page unload)
+            navigator.sendBeacon("log.php", data);
+    
+            // (optional) if you want to stop redirect until log is sent:
+            // e.preventDefault();
+            // setTimeout(() => { window.location.href = e.target.href; }, 200);
+            }
+        </script>
     </body>
     </html>
 
