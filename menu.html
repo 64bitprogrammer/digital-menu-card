@@ -22,6 +22,7 @@
         <nav class="category-nav">
             <button class="nav-toggle" onclick="toggleNav()">📋 Browse Menu Categories</button>
             <div class="nav-buttons" id="navButtons">
+                <button class="nav-btn" onclick="scrollToSection('new-arrivals')">New Arrivals</button>
                 <button class="nav-btn" onclick="scrollToSection('breakfast')">Breakfast</button>
                 <button class="nav-btn" onclick="scrollToSection('dosa')">Dosa</button>
                 <button class="nav-btn" onclick="scrollToSection('poori')">Poori</button>
@@ -43,6 +44,28 @@
         </nav>
 
         <main>
+            <section id="new-arrivals" class="menu-section">
+                <h2 class="section-title">New Arrivals</h2>
+                <!-- <div class="timing">[7.30 AM Onwards]</div> -->
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h3 class="item-name"><span class="veg-indicator"></span>Mangalore Buns (Single/Double)</h3>
+                            <span class="item-price">₹70/₹100</span>
+                        </div>
+                        <!-- <p class="item-description"></p> -->
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-header">
+                            <h3 class="item-name"><span class="veg-indicator"></span>Rava Idli (Single/Double)</h3>
+                            <span class="item-price">₹60/₹90</span>
+                        </div>
+                        <!-- <p class="item-description"></p> -->
+                    </div>
+
+                </div>
+            </section>
+
             <section id="breakfast" class="menu-section">
                 <h2 class="section-title">Breakfast</h2>
                 <div class="menu-items">
